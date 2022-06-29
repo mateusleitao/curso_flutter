@@ -1,3 +1,4 @@
+// ignore_for_file: prefer_const_constructors
 // TODO: Stateless Component
 
 // TODO: Constructor = (text)
@@ -8,17 +9,22 @@
 //             )
 
 import 'package:flutter/material.dart';
+import 'main.dart';
+import 'question.dart';
 
 class Answer extends StatelessWidget {
-  const Answer({Key? key}) : super(key: key);
+  Answer({Key? key, required this.text, required this.onSelect})
+      : super(key: key);
 
+  final String text;
+  final void Function() onSelect;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 40,
+    return Container(
+      width: double.maxFinite,
       child: ElevatedButton(
-        onPressed: null,
-        child: Text('Resposta 3'),
+        onPressed: onSelect,
+        child: Text(text),
       ),
     );
   }

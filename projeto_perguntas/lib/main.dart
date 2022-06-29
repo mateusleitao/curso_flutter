@@ -7,12 +7,13 @@ import 'answer.dart';
 main() => runApp(PerguntaApp());
 
 class _PerguntaAppState extends State<PerguntaApp> {
-  var _perguntaSelecionada = 0;
-  void _responder() {
+  var perguntaSelecionada = 0;
+  void responder() {
     setState(() {
-      _perguntaSelecionada++;
+      perguntaSelecionada++;
     });
-    print('voce esta na pergunta ${_perguntaSelecionada}');
+
+    print('voce esta na pergunta ${perguntaSelecionada}');
   }
 
   @override
@@ -28,16 +29,19 @@ class _PerguntaAppState extends State<PerguntaApp> {
         ),
         body: Column(
           children: <Widget>[
-            Questao(perguntas[_perguntaSelecionada]),
-            RaisedButton(
-              onPressed: _responder,
-              child: Text('Resposta 1'),
+            Questao(perguntas[perguntaSelecionada]),
+            Answer(
+              text: 'Resposta 1',
+              onSelect: responder,
             ),
-            Answer(),
-            RaisedButton(
-              onPressed: _responder,
-              child: Text('Resposta 3'),
-            )
+            Answer(
+              text: 'Resposta 2',
+              onSelect: responder,
+            ),
+            Answer(
+              text: 'Resposta 3',
+              onSelect: responder,
+            ),
           ],
         ),
       ),
