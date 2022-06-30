@@ -9,8 +9,7 @@
 //             )
 
 import 'package:flutter/material.dart';
-import 'main.dart';
-import 'question.dart';
+import 'package:flutter/rendering.dart';
 
 class Answer extends StatelessWidget {
   Answer({Key? key, required this.text, required this.onSelect})
@@ -21,10 +20,13 @@ class Answer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.maxFinite,
-      child: ElevatedButton(
-        onPressed: onSelect,
-        child: Text(text),
+      height: 60,
+      child: Container(
+        margin: EdgeInsets.all(10),
+        child: ElevatedButton(
+          onPressed: onSelect,
+          child: Text(text),
+        ),
       ),
     );
   }
